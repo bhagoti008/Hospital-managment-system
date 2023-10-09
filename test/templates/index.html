@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Appointment</title>
+</head>
+<body>
+	<h1>Book Appointment</h1>
+	<form method="POST" action="/book_appointment">
+		<label>Patient ID:</label>
+		<input type="text" name="patient_id"><br><br>
+		<label>Emergency:</label>
+		<input type="radio" name="emergency" value="1">Yes
+		<input type="radio" name="emergency" value="0">No<br><br>
+		<div id="emergency-fields">
+			<label>Symptoms:</label>
+			<input type="text" name="symptoms"><br><br>
+			<label>Doctor Name:</label>
+			<input type="text" name="doctor_name"><br><br>
+			<label>Specialization:</label>
+			<input type="text" name="specialization"><br><br>
+			<label>Date:</label>
+			<input type="date" name="date"><br><br>
+			<label>Time Slot:</label>
+			<input type="time" name="time_slot"><br><br>
+		</div>
+		<button type="submit">Book Appointment</button>
+	</form>
+</body>
+</html>
+
+<!-- JavaScript code to show/hide emergency fields -->
+<script>
+	var emergency = document.getElementsByName('emergency');
+	var emergency_fields = document.getElementById('emergency-fields');
+
+	for(var i=0; i<emergency.length; i++) {
+		emergency[i].addEventListener('change', function() {
+			if(this.value == '1') {
+				emergency_fields.style.display = 'none';
+			} else {
+			emergency_fields.style.display = 'block';
+		}
+	});
+}
+</script>
